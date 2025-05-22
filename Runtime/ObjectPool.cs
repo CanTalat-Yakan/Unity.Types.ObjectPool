@@ -3,43 +3,37 @@
     public class ObjectPool<T> where T : struct
     {
         private T[] _pool;
-        private int _freeIndex;
+        private int _count;
         private int _capacity;
 
-        public ObjectPool(int initialCapacity, System.Func<int, T> createItem)
+        public ObjectPool(int initialCapacity = 256)
         {
             _capacity = initialCapacity;
             _pool = new T[_capacity];
-            _freeIndex = 0;
-
-            for (int i = 0; i < _capacity; i++)
-                _pool[i] = createItem(i);
+            _count = _capacity;
         }
 
-        public T Get()
+        public ref T Get()
         {
-            if (_freeIndex >= _capacity)
-                ExpandPool(_capacity * 2);
+            if (_count == 0)
+                ExpandPool(_capacity + (_capacity >> 1));
 
-            T item = _pool[_freeIndex];
-            _freeIndex++;
-            return item;
+            _count--;
+            return ref _pool[_count];
         }
 
-        public void Release(ref T item, int index)
+        public void Release(ref T item)
         {
-            if (index >= 0 && index < _capacity)
-            {
-                _pool[index] = item;
-                _freeIndex--;
-            }
+            _pool[_count] = item;
+            _count++;
         }
 
         private void ExpandPool(int newCapacity)
         {
             T[] newPool = new T[newCapacity];
-            System.Array.Copy(_pool, newPool, _capacity);
+            System.Array.Copy(_pool, 0, newPool, 0, _capacity);
             _pool = newPool;
+            _count += newCapacity - _capacity;
             _capacity = newCapacity;
         }
     }
