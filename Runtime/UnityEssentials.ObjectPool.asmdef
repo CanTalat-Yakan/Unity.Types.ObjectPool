@@ -1,0 +1,16 @@
+{
+    "name": "UnityEssentials.ObjectPool",
+    "rootNamespace": "UnityEssentials",
+    "references": [
+        "GUID:7ccd01408cad58c499d8256514154171"
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}
