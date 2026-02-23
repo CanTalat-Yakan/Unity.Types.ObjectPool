@@ -1,5 +1,5 @@
 {
-    "name": "UnityEssentials.ObjectPool",
+    "name": "UnityEssentials.Types.ObjectPool",
     "rootNamespace": "UnityEssentials",
     "references": [
         "GUID:7ccd01408cad58c499d8256514154171"
