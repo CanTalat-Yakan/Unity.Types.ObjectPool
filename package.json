@@ -1,12 +1,13 @@
 {
   "name": "com.unityessentials.types.objectpool",
-  "version": "2.0.2",
+  "version": "2.0.3",
   "displayName": "Types ObjectPool",
   "description": "This is a part of the UnityEssentials Ecosystem",
   "unity": "6000.0",
   "unityRelease": "",
+  "resolutionStrategy": "highestPatch",
   "dependencies": {
-    "com.unityessentials.types.managedarray": "~2.0.0"
+    "com.unityessentials.types.managedarray": "2.0.0"
   },
   "keywords": [],
   "author": {
